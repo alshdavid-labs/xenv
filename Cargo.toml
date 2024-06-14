@@ -5,6 +5,7 @@ edition = "2021"
 
 [dependencies]
 clap = { version = "4.5.3", features = ["derive"] }
+clap_complete = "4.5.5"
 
 [profile.release]
 opt-level = 3
