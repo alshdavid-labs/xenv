@@ -10,7 +10,7 @@ use std::path::PathBuf;
 /// --------
 /// Expand .env files so they can be used in shell environments
 /// Shell Usage:
-///   Bash:         eval $(xenv ./.env)
+///   Bash:         eval $(xenv .env)
 ///   PowerShell:   xenv .env | Invoke-Expression
 #[clap(verbatim_doc_comment)]
 #[derive(Parser, Debug)]
