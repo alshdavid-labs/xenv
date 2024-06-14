@@ -10,18 +10,16 @@ This is a cross-platform utility that allows you to `source` idiomatic `.env` fi
 
 ```bash
 # bash
-echo "FOO=bar" > .env
-eval $(xenv ./.env)
+eval $(xenv .env)
 echo $FOO
 ```
 
 ### PowerShell
 
 ```powershell
-# bash
-Write-Output "FOO=bar" | Out-File -filepath .env
-Invoke-Expression &{ xenv .\.env }
-Write-Output "$FOO"
+# powershell
+xenv .env | Invoke-Expression
+echo "$FOO"
 ```
 
 # Development 🧩
