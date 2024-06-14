@@ -1,3 +1,4 @@
+mod dotenv;
 use clap::Parser;
 use std::path::PathBuf;
 
@@ -13,5 +14,16 @@ struct Commands {
 
 fn main() {
   let cmd = Commands::parse();
-  dbg!(&cmd);
+  let Ok(env) = dotenv::parse_file(&cmd.env_file_path) else {
+    println!("Failed to read env file");
+    std::process::exit(1);
+  };
+
+  let mut output = String::new();
+
+  for (key, value) in env {
+    output += &format!("export {}={};", key, value);
+  }
+
+  print!("{}", output);
 }
